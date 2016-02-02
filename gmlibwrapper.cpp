@@ -421,17 +421,33 @@ void GMlibWrapper::initScene() {
 //        //_scene->insert(ball2);
 
         //with collision controller-----------------------------------------------------------------------
+    //simplewalls with getnormal
            auto wallN = new PWall
-                   (GMlib::Point<float,3>(10,10,0), GMlib::Vector<float,3>(0,0,2), GMlib::Vector<float,3>(-10,0,0));
+                   (GMlib::Point<float,3>(10,8,0), GMlib::Vector<float,3>(0,0,3), GMlib::Vector<float,3>(-20,0,0));
 
            auto wallS = new PWall
-                   (GMlib::Point<float,3>(0,0,0), GMlib::Vector<float,3>(0,0,2), GMlib::Vector<float,3>(10,0,0));
+                   (GMlib::Point<float,3>(-10,-8,0), GMlib::Vector<float,3>(0,0,3), GMlib::Vector<float,3>(20,0,0));
 
            auto wallW = new PWall
-                   (GMlib::Point<float,3>(0,0,0), GMlib::Vector<float,3>(0,10,0), GMlib::Vector<float,3>(0,0,2));
+                   (GMlib::Point<float,3>(10,-8,0), GMlib::Vector<float,3>(0,0,3), GMlib::Vector<float,3>(0,16,0));
 
            auto wallE = new PWall
-                   (GMlib::Point<float,3>(10,10,0), GMlib::Vector<float,3>(0,-10,0), GMlib::Vector<float,3>(0,0,2));
+                   (GMlib::Point<float,3>(-10,8,0), GMlib::Vector<float,3>(0,0,3), GMlib::Vector<float,3>(0,-16,0));
+
+//           auto wallN = new PWall<float>
+//                           (GMlib::Point<float,3>(-10,8,4), GMlib::Point<float,3>(-10,8,0),
+//                            GMlib::Point<float,3>(-10,-8,0), GMlib::Point<float,3>(-10,-8,4));
+//           auto wallS = new PWall<float>
+//                           (GMlib::Point<float,3>(10,8,4), GMlib::Point<float,3>(10,-8,4),
+//                            GMlib::Point<float,3>(10,-8,0), GMlib::Point<float,3>(10,8,0));
+//           auto wallW = new PWall<float>
+//                           (GMlib::Point<float,3>(-10,8,4), GMlib::Point<float,3>(10,8,4),
+//                            GMlib::Point<float,3>(10,8,0), GMlib::Point<float,3>(-10,8,0));
+//           auto wallE = new PWall<float>
+//                           (GMlib::Point<float,3>(-10,-8,4), GMlib::Point<float,3>(10,-8,4),
+//                            GMlib::Point<float,3>(10,-8,0), GMlib::Point<float,3>(-10,-8,0));
+
+
 
            auto floor = new PBiPlane<float>
                    (GMlib::Point<float,3>(-10,8,0), GMlib::Point<float,3>(10,8,0),
@@ -446,18 +462,31 @@ void GMlibWrapper::initScene() {
            auto colController = new Controller(floor);
            _scene->insert(colController);
 
-           auto ball1 = new Ball(1,5,GMlib::Vector<float,3>(2,0,0),GMlib::Point<float,3>(-7,0,1), floor);
+           auto ball1 = new Ball(1,5,GMlib::Vector<float,3>(5,2,0),GMlib::Point<float,3>(-7,0,1), floor);
            colController->insertBall(ball1);
            ball1->insertVisualizer(surface_visualizer);
            ball1->replot(200,200,1,1);
            ball1->setMaterial(GMlib::GMmaterial::Obsidian);
 
 
-           auto ball2 = new Ball(1,5,GMlib::Vector<float,3>(-2,0,0),GMlib::Point<float,3>(7,0,1), floor);
+           auto ball2 = new Ball(1,5,GMlib::Vector<float,3>(-5,-5,0),GMlib::Point<float,3>(7,0,1), floor);
            colController->insertBall(ball2);
            ball2->insertVisualizer(surface_visualizer);
            ball2->replot(200,200,1,1);
            ball2->setMaterial(GMlib::GMmaterial::Ruby);
+
+           auto ball3 = new Ball(1,5,GMlib::Vector<float,3>(2,0,0),GMlib::Point<float,3>(5,3,1), floor);
+           colController->insertBall(ball3);
+           ball3->insertVisualizer(surface_visualizer);
+           ball3->replot(200,200,1,1);
+           ball3->setMaterial(GMlib::GMmaterial::Pearl);
+
+
+           auto ball4 = new Ball(1,5,GMlib::Vector<float,3>(-2,0,0),GMlib::Point<float,3>(7,-3,1), floor);
+           colController->insertBall(ball4);
+           ball4->insertVisualizer(surface_visualizer);
+           ball4->replot(200,200,1,1);
+           ball4->setMaterial(GMlib::GMmaterial::Jade);
 
 
            wallN->toggleDefaultVisualizer();

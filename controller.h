@@ -3,9 +3,6 @@
 
 
 #include <parametrics/gmpsphere>
-#include "gmpwall.h"
-#include "ball.h"
-#include "gmpbiplane.h"
 #include "collision.h"
 
 //#include "colobject.h"
@@ -159,8 +156,22 @@ protected:
         GMlib::Point<float,3> p = ball->getPos();
         double r = ball->getRadius();
 
+
+
         GMlib::Vector<float,3> n = wall->getNormal();
-        GMlib::Vector<float,3> d = wall->getPoint() - p; //
+
+        wall->getClosestPoint(this->getPos(),_u,_v);
+        GMlib::DMatrix<GMlib::Vector<float,3>> sMatrix = wall->evaluate(_u,_v, 1,1);
+        //GMlib::UnitVector<float,3> n = sMatrix[0][1] ^ sMatrix[1][0];
+
+
+        //GMlib::Vector<float,3> d = wall->getPoint() - p; //double check
+
+        //wall->getClosestPoint(this->getPos(),_u,_v);
+        //GMlib::DMatrix<GMlib::Vector<float,3>> sMatrix = wall->evaluate(_u,_v, 1,1);
+        GMlib::Vector<float,3> d = sMatrix[0][0] - p;
+
+
 
         GMlib::Vector<float,3> dS = ball->getDs();
 

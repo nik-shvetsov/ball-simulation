@@ -1,38 +1,36 @@
 #ifndef BALL_H
 #define BALL_H
 
-
 #include <parametrics/gmpsphere>
 #include "gmpbiplane.h"
+#include "gmpcurplane.h"
+#include <gmParametricsModule>
 
+#include <QDebug>
 
 class Ball : public GMlib::PSphere<float> {
     GM_SCENEOBJECT(Ball)
 public:
   using PSphere::PSphere;
 
-  Ball(double radius, double mass, GMlib::Vector<float,3> velocity, GMlib::Point<float,3> location, PBiPlane<float>* surface)
+  Ball(double radius, double mass, GMlib::Vector<float,3> velocity, GMlib::PBezierSurf<float>* surface)
       :GMlib::PSphere<float>(radius)
   {
       this->_radius = radius;
       this->_mass = mass;
       this->_velocity = velocity;
-      this->_location = location;
       this->_surface = surface;
-      _x=0;
+      this->_x=0;
 
-      _surface->estimateClpPar(this->getPos(),_u,_v); //evaluating _u, _v
-
-      this->setLocation(_location);
+      this->_surface->estimateClpPar(this->getPos(),_u,_v); //evaluating _u, _v
   }
-
 
   ~Ball() {
   }
 
-//setting ball properties
+//methods for setting ball properties
 
-    void setVelocity(const GMlib::Vector<float,3> &velocity)
+    void setVelocity(const GMlib::Vector<float,3> velocity)
     {
         _velocity = velocity;
     }
@@ -42,15 +40,9 @@ public:
         return _velocity;
     }
 
-    void setMass(double mass)
-    {
-        _mass = mass;
-    }
-
-    float getMass()
+    double getMass()
     {
         return _mass;
-
     }
 
     GMlib::Vector<float,3> getDs()
@@ -58,20 +50,25 @@ public:
         return _dS;
     }
 
-    void setLocation(GMlib::Point<float,3> location)
-    {
-        _location = location;
-        translate(location+_velocity); //point1 = vector + point2
-    }
-
-    GMlib::Point<float,3> getLocation()
-    {
-        return _location; //equal to getPos()
-    }
+//    void setLocation(GMlib::Point<float,3> &location)
+//    {
+//        _location = location;
+//        translate(location+_velocity); //point1 = vector + point2
+//    }
 
     void updateX(double x)
     {
-        this->_x=x;
+        _x=x;
+    }
+
+    double getX()
+    {
+        return _x;
+    }
+
+    void setUV(GMlib::PBezierSurf<float>* surface)
+    {
+        surface->estimateClpPar(this->getPos(), _u, _v);
     }
 
     GMlib::Vector<float,3> getSurfNormal()
@@ -87,34 +84,114 @@ public:
         static auto g = GMlib::Vector<float,3>(0,0,-9.8);
         _dS = dt * _velocity + 0.5 * dt * dt * g;
 
-        _surface->getClosestPoint(getPos()+_dS,_u,_v);
-        GMlib::DMatrix<GMlib::Vector<float,3>> sMatrix =_surface->evaluate(_u,_v,1,1);
-        GMlib::UnitVector<float,3> norm = sMatrix[0][1] ^ sMatrix[1][0];
-        _dS = sMatrix[0][0]+(_radius*norm)-getPos();
-        _velocity+=dt*g;
-        _velocity-=(norm*_velocity)*norm; //should be: _velocity+=(norm*_velocity)*norm; ?
+        _surface->getClosestPoint(this->getPos()+_dS,_u,_v);// _p = this->getPos()+_dS
 
-        //deal with cout once case
+        GMlib::DMatrix<GMlib::Vector<float,3>> sMatrix =_surface->evaluate(_u,_v,1,1);
+        GMlib::UnitVector<float,3> norm = sMatrix[0][1] ^ sMatrix[1][0];  //norm.normalize();
+
+        _dS = sMatrix[0][0]+(_radius*norm)-this->getPos();
+
+        double v1 = _velocity*_velocity + 2.0*(g*_dS); //
+
+        _velocity+=dt*g;
+        _velocity-=(_velocity*norm)*norm; //should be: _velocity+=(norm*_velocity)*norm; ?
+
+        double v2 = _velocity*_velocity; //
+
+        if(v2 > 0.0001) //
+        { //
+            if(v1 > 0.0001) //
+            _velocity *= std::sqrt(v1/v2); //
+        } //
+    }
+
+    void moveUp()
+    {
+        GMlib::Vector<float,3> newVelVect = this->getVelocity();
+        if (newVelVect[1] < 8.0 && newVelVect[1] > -8.0)
+        {
+            if (newVelVect[1] < 0.0)
+            {
+                newVelVect[1] = 0.0;
+            }
+
+            newVelVect[1] += 0.5;
+            newVelVect[0] *= 0.5;
+            //newVelVect[2] *= 0.5;
+            this->setVelocity(newVelVect);
+
+//        qDebug() << newVelVect[0];
+//        qDebug() << "";
+//        qDebug() << newVelVect[1];
+//        qDebug() << "";
+//        qDebug() << newVelVect[2];
+//        qDebug() << "--------------";
+        }
+
+    }
+    void moveDown()
+    {
+        GMlib::Vector<float,3> newVelVect = this->getVelocity();
+        if (newVelVect[1] < 8.0 && newVelVect[1] > -8.0)
+        {
+            if (newVelVect[1] > 0.0)
+            {
+                newVelVect[1] = 0.0;
+            }
+
+            newVelVect[1] -= 0.5;
+            newVelVect[0] *= 0.5;
+            //newVelVect[2] *= 0.5;
+            this->setVelocity(newVelVect);
+        }
+    }
+    void moveRight()
+    {
+        GMlib::Vector<float,3> newVelVect = this->getVelocity();
+        if (newVelVect[0] < 8.0 && newVelVect[0] > -8.0)
+        {
+            if (newVelVect[0] < 0.0)
+            {
+                newVelVect[0] = 0.0;
+            }
+
+            newVelVect[0] += 0.5;
+            newVelVect[1] *= 0.5;
+            //newVelVect[2] *= 0.5;
+            this->setVelocity(newVelVect);
+        }
+    }
+    void moveLeft()
+    {
+        GMlib::Vector<float,3> newVelVect = this->getVelocity();
+        if (newVelVect[0] < 8.0 && newVelVect[0] > -8.0)
+        {
+            if (newVelVect[0] > 0.0)
+            {
+                newVelVect[0] = 0.0;
+            }
+
+            newVelVect[0] -= 0.5;
+            newVelVect[1] *= 0.5;
+            //newVelVect[2] *= 0.5;
+            this->setVelocity(newVelVect);
+        }
     }
 
 
 
 protected:
-  void localSimulate(double dt) override {
-
-    computeStep(dt);
-    rotate(_dS.getLength(), this->getSurfNormal()^_dS);
-    translateGlobal(_dS);
-
+  void localSimulate(double dt)
+  {
+    rotateGlobal(GMlib::Angle(_dS.getLength()/this->getRadius()), this->getSurfNormal()^_dS);
     //rotateParent(_dS.getLength(), this->getGlobalPos(), this->getSurfNormal()^_dS);
-    //translate(3*dt * GMlib::Vector<float,3>( 1.0f, 1.0f, 0.0f ));
-    //rotate( GMlib::Angle(90) * dt, GMlib::Vector<float,3>( 0.0f, 0.0f, 1.0f ) );
-    //rotate( GMlib::Angle(180) * dt, GMlib::Vector<float,3>( 1.0f, 1.0f, 0.0f ) );
+    this->translateParent(_dS);
 
+    //computeStep(dt);
+    //qDebug() << "test";
   }
 
 private:
-  GMlib::Point<float,3> _location;
   GMlib::Vector<float,3> _velocity;
   double _mass;
 
@@ -124,8 +201,10 @@ private:
 
   double _x;
 
-  PBiPlane<float>* _surface;
+  GMlib::PBezierSurf<float>* _surface;
   //std::shared_ptr<PBiPlane<float>> _surface;
+
+  GMlib::Point<float,3> _p; //
 
 }; // END class ball
 

@@ -46,6 +46,10 @@ public:
         return _colBW;
     }
 
+    void updateX(double x) //
+    {
+      _x = x;
+    }
 
     //operators
     bool operator < (const  Collision& other)const
@@ -62,8 +66,7 @@ public:
         return false;
     }
 
-  ~Collision() {
-  }
+  ~Collision() {}
 
 private:
     Ball* _balls[2];

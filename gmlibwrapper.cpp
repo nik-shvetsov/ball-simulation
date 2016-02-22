@@ -292,6 +292,9 @@ void GMlibWrapper::initScene() {
     // Surface test torus
     //surface->test01();
 
+
+
+      //adding a ball
 //    auto object1 = new Ball(1);
 //    //auto object1 = new Ball(1,1,GMlib::Vector<float,3>(1,0,0),GMlib::Point<float,3>(-7,0,1));
 //    object1->toggleDefaultVisualizer();
@@ -305,24 +308,9 @@ void GMlibWrapper::initScene() {
 //    //object1->setVelocity(GMlib::Vector<float,3>( 0.0f, 0.0f, 0.0f ));
 //    _scene->insert(object1);
 
-//    //adding another ball
 
-//    auto object2 = new Ball(1);
-//    object2->toggleDefaultVisualizer();
-//    //object2->translate(GMlib::Vector<float,3>(7,0,1));
-//    object2->replot(200,200,1,1);
-//    object2->setMaterial(GMlib::GMmaterial::Copper);
-//    object2->setMass(7);
-//    object2->setVelocity(GMlib::Vector<float,3>( -1.0f, 0.0f, 0.0f ));
-//    object2->setLocation(GMlib::Point<float,3>(7,0,1));
-//    //object2->setVelocity(GMlib::Vector<float,3>( 0.0f, 0.0f, 0.0f ));
-//    _scene->insert(object2);
-
-
-
-    //adding new seashell
-
-    //GMlib::PSeashell<float>* shell = new GMlib::PSeashell<float>();
+      //adding new seashell
+//    //GMlib::PSeashell<float>* shell = new GMlib::PSeashell<float>();
 //    auto shell = new GMlib::PSphere<float>;
 //    shell->toggleDefaultVisualizer();
 //    shell->replot(200,200,1,1);
@@ -332,8 +320,7 @@ void GMlibWrapper::initScene() {
 //    //biplane->insert(shell);
 
 
-//    //adding new biplane of 4 points
-
+      //adding new biplane of 4 points
 //    //PBIPlane<float>*
 //    auto biplane = new PBiPlane<float>
 //            (GMlib::Point<float,3>(0,0,0), GMlib::Point<float,3>(2,0,0),
@@ -343,8 +330,8 @@ void GMlibWrapper::initScene() {
 //    biplane->setMaterial(GMlib::GMmaterial::Gold);
 //    _scene->insert(biplane);
 
-//    //adding curved plane
 
+      //adding curved plane
 //    GMlib::DMatrix<GMlib::Vector<float,3>> m(3,3);
 //    m[0][0] = GMlib::Vector<float,3> (1,0,0);
 //    m[0][1] = GMlib::Vector<float,3> (2,0,0);
@@ -362,77 +349,79 @@ void GMlibWrapper::initScene() {
 //    _scene->insert(pcurved);
 
 
-    //creating box of walls
-
-//        //PBIPlane<float>*
-//        auto wallN = new PWall<float>
+      //creating box of walls
+//    //PBIPlane<float>*
+//    auto wallN = new PWall<float>
 //                (GMlib::Point<float,3>(-10,8,2), GMlib::Point<float,3>(-10,8,0),
 //                 GMlib::Point<float,3>(-10,-8,0), GMlib::Point<float,3>(-10,-8,2));
-//        wallN->toggleDefaultVisualizer();
-//        wallN->replot(30,30,1,1);
-//        wallN->setMaterial(GMlib::GMmaterial::Gold);
-//        _scene->insert(wallN);
+//    wallN->toggleDefaultVisualizer();
+//    wallN->replot(30,30,1,1);
+//    wallN->setMaterial(GMlib::GMmaterial::Gold);
+//    _scene->insert(wallN);
 
 
-//        auto wallS = new PWall<float>
+//    auto wallS = new PWall<float>
 //                (GMlib::Point<float,3>(10,8,2), GMlib::Point<float,3>(10,-8,2),
 //                 GMlib::Point<float,3>(10,-8,0), GMlib::Point<float,3>(10,8,0));
-//        wallS->toggleDefaultVisualizer();
-//        wallS->replot(30,30,1,1);
-//        wallS->setMaterial(GMlib::GMmaterial::Gold);
-//        _scene->insert(wallS);
+//    wallS->toggleDefaultVisualizer();
+//    wallS->replot(30,30,1,1);
+//    wallS->setMaterial(GMlib::GMmaterial::Gold);
+//    _scene->insert(wallS);
 
-//        auto wallW = new PWall<float>
+//    auto wallW = new PWall<float>
 //                (GMlib::Point<float,3>(-10,8,2), GMlib::Point<float,3>(10,8,2),
 //                 GMlib::Point<float,3>(10,8,0), GMlib::Point<float,3>(-10,8,0));
-//        wallW->toggleDefaultVisualizer();
-//        wallW->replot(30,30,1,1);
-//        wallW->setMaterial(GMlib::GMmaterial::Gold);
-//        _scene->insert(wallW);
+//    wallW->toggleDefaultVisualizer();
+//    wallW->replot(30,30,1,1);
+//    wallW->setMaterial(GMlib::GMmaterial::Gold);
+//    _scene->insert(wallW);
 
-//        auto wallE = new PWall<float>
+//    auto wallE = new PWall<float>
 //                (GMlib::Point<float,3>(-10,-8,2), GMlib::Point<float,3>(10,-8,2),
 //                 GMlib::Point<float,3>(10,-8,0), GMlib::Point<float,3>(-10,-8,0));
-//        wallE->toggleDefaultVisualizer();
-//        wallE->replot(30,30,1,1);
-//        wallE->setMaterial(GMlib::GMmaterial::Gold);
-//        _scene->insert(wallE);
+//    wallE->toggleDefaultVisualizer();
+//    wallE->replot(30,30,1,1);
+//    wallE->setMaterial(GMlib::GMmaterial::Gold);
+//    _scene->insert(wallE);
 
-//        auto floor = new PBiPlane<float>
+
+      //creating floor surface
+//    auto floor = new PBiPlane<float>
 //                (GMlib::Point<float,3>(-10,8,0), GMlib::Point<float,3>(10,8,0),
 //                 GMlib::Point<float,3>(10,-8,0), GMlib::Point<float,3>(-10,-8,0));
-//        floor->toggleDefaultVisualizer();
-//        floor->replot(30,30,1,1);
-//        floor->setMaterial(GMlib::GMmaterial::Jade);
-//        _scene->insert(floor);
+//    floor->toggleDefaultVisualizer();
+//    floor->replot(30,30,1,1);
+//    floor->setMaterial(GMlib::GMmaterial::Jade);
+//    _scene->insert(floor);
+
+      //creating balls
+//    auto ball1 = new Ball(1,1,GMlib::Vector<float,3>(1,0,0),GMlib::Point<float,3>(-7,0,1), floor);
+//    ball1->insertVisualizer(surface_visualizer);
+//    ball1->replot(200,200,1,1);
+//    ball1->setMaterial(GMlib::GMmaterial::Ruby);
+//    _scene->insert(ball1);
 
 
-//        auto ball1 = new Ball(1,1,GMlib::Vector<float,3>(1,0,0),GMlib::Point<float,3>(-7,0,1), floor);
-//        ball1->insertVisualizer(surface_visualizer);
-//        ball1->replot(200,200,1,1);
-//        ball1->setMaterial(GMlib::GMmaterial::Ruby);
-//        _scene->insert(ball1);
+//    auto ball2 = new Ball(5,1,GMlib::Vector<float,3>(-1,0,0),GMlib::Point<float,3>(0,0,0), floor);
+//    ball2->toggleDefaultVisualizer();
+//    ball2->replot(200,200,1,1);
+//    ball2->setMaterial(GMlib::GMmaterial::Sapphire);
+//    _scene->insert(ball2);
 
 
-//        auto ball2 = new Ball(5,1,GMlib::Vector<float,3>(-1,0,0),GMlib::Point<float,3>(0,0,0), floor);
-//        ball2->toggleDefaultVisualizer();
-//        ball2->replot(200,200,1,1);
-//        ball2->setMaterial(GMlib::GMmaterial::Sapphire);
-//        //_scene->insert(ball2);
-
-        //with collision controller-----------------------------------------------------------------------
+    //with collision controller-----------------------------------------------------------------------
     //simplewalls with getnormal
            auto wallN = new PWall
-                   (GMlib::Point<float,3>(10,8,0), GMlib::Vector<float,3>(0,0,3), GMlib::Vector<float,3>(-20,0,0));
+                   (GMlib::Point<float,3>(10,10,0), GMlib::Vector<float,3>(0,0,2), GMlib::Vector<float,3>(-20,0,0));
 
            auto wallS = new PWall
-                   (GMlib::Point<float,3>(-10,-8,0), GMlib::Vector<float,3>(0,0,3), GMlib::Vector<float,3>(20,0,0));
+                   (GMlib::Point<float,3>(-10,-10,0), GMlib::Vector<float,3>(0,0,2), GMlib::Vector<float,3>(20,0,0));
 
            auto wallW = new PWall
-                   (GMlib::Point<float,3>(10,-8,0), GMlib::Vector<float,3>(0,0,3), GMlib::Vector<float,3>(0,16,0));
+                   (GMlib::Point<float,3>(10,-10,0), GMlib::Vector<float,3>(0,0,2), GMlib::Vector<float,3>(0,20,0));
 
            auto wallE = new PWall
-                   (GMlib::Point<float,3>(-10,8,0), GMlib::Vector<float,3>(0,0,3), GMlib::Vector<float,3>(0,-16,0));
+                   (GMlib::Point<float,3>(-10,10,0), GMlib::Vector<float,3>(0,0,2), GMlib::Vector<float,3>(0,-20,0));
 
 //           auto wallN = new PWall<float>
 //                           (GMlib::Point<float,3>(-10,8,4), GMlib::Point<float,3>(-10,8,0),
@@ -449,44 +438,191 @@ void GMlibWrapper::initScene() {
 
 
 
-           auto floor = new PBiPlane<float>
-                   (GMlib::Point<float,3>(-10,8,0), GMlib::Point<float,3>(10,8,0),
-                    GMlib::Point<float,3>(10,-8,0), GMlib::Point<float,3>(-10,-8,0));
-           floor->toggleDefaultVisualizer();
-           floor->replot(30,30,1,1);
-           floor->setMaterial(GMlib::GMmaterial::Jade);
+//           auto floor = new PBiPlane<float>
+//                   (GMlib::Point<float,3>(-10,10,0), GMlib::Point<float,3>(10,10,0),
+//                    GMlib::Point<float,3>(10,-10,0), GMlib::Point<float,3>(-10,-10,0));
+//           floor->toggleDefaultVisualizer();
+//           floor->replot(30,30,1,1);
+//           //floor->setMaterial(GMlib::GMmaterial::Jade);
 
-           //floor->getDefaultVisualizer()->setDisplayMode(GMlib::Visualizer::DISPLAY_MODE_WIREFRAME);
+           //---------------------curved test
+               //adding curved plane
+
+               GMlib::DMatrix<GMlib::Vector<float,3>> m(11,11);
+
+               m[0][0] = GMlib::Vector<float,3> (-10,-10,0);
+               m[0][1] = GMlib::Vector<float,3> (-8,-10,0);
+               m[0][2] = GMlib::Vector<float,3> (-6,-10,0);
+               m[0][3] = GMlib::Vector<float,3> (-4,-10,0);
+               m[0][4] = GMlib::Vector<float,3> (-2,-10,0);
+               m[0][5] = GMlib::Vector<float,3> (0,-10,0);
+               m[0][6] = GMlib::Vector<float,3> (2,-10,0);
+               m[0][7] = GMlib::Vector<float,3> (4,-10,0);
+               m[0][8] = GMlib::Vector<float,3> (6,-10,0);
+               m[0][9] = GMlib::Vector<float,3> (8,-10,0);
+               m[0][10] = GMlib::Vector<float,3> (10,-10,0);
+
+               m[1][0] = GMlib::Vector<float,3> (-10,-8,0);
+               m[1][1] = GMlib::Vector<float,3> (-8,-8,0);
+               m[1][2] = GMlib::Vector<float,3> (-6,-8,0);
+               m[1][3] = GMlib::Vector<float,3> (-4,-8,0);
+               m[1][4] = GMlib::Vector<float,3> (-2,-8,0);
+               m[1][5] = GMlib::Vector<float,3> (0,-8,0);
+               m[1][6] = GMlib::Vector<float,3> (2,-8,0);
+               m[1][7] = GMlib::Vector<float,3> (4,-8,0);
+               m[1][8] = GMlib::Vector<float,3> (6,-8,0);
+               m[1][9] = GMlib::Vector<float,3> (8,-8,0);
+               m[1][10] = GMlib::Vector<float,3> (10,-8,0);
+
+               m[2][0] = GMlib::Vector<float,3> (-10,-6,0);
+               m[2][1] = GMlib::Vector<float,3> (-8,-6,0);
+               m[2][2] = GMlib::Vector<float,3> (-6,-6,0);
+               m[2][3] = GMlib::Vector<float,3> (-4,-6,0);
+               m[2][4] = GMlib::Vector<float,3> (-2,-6,0);
+               m[2][5] = GMlib::Vector<float,3> (0,-6,0);
+               m[2][6] = GMlib::Vector<float,3> (2,-6,0);
+               m[2][7] = GMlib::Vector<float,3> (4,-6,0);
+               m[2][8] = GMlib::Vector<float,3> (6,-6,0);
+               m[2][9] = GMlib::Vector<float,3> (8,-6,0);
+               m[2][10] = GMlib::Vector<float,3> (10,-6,0);
+
+               m[3][0] = GMlib::Vector<float,3> (-10,-4,0);
+               m[3][1] = GMlib::Vector<float,3> (-8,-4,0);
+               m[3][2] = GMlib::Vector<float,3> (-6,-4,0);
+               m[3][3] = GMlib::Vector<float,3> (-4,-4,0);
+               m[3][4] = GMlib::Vector<float,3> (-2,-4,0);
+               m[3][5] = GMlib::Vector<float,3> (0,-4,0);
+               m[3][6] = GMlib::Vector<float,3> (2,-4,0);
+               m[3][7] = GMlib::Vector<float,3> (4,-4,0);
+               m[3][8] = GMlib::Vector<float,3> (6,-4,0);
+               m[3][9] = GMlib::Vector<float,3> (8,-4,0);
+               m[3][10] = GMlib::Vector<float,3> (10,-4,0);
+
+               m[4][0] = GMlib::Vector<float,3> (-10,-2,0);
+               m[4][1] = GMlib::Vector<float,3> (-8,-2,0);
+               m[4][2] = GMlib::Vector<float,3> (-6,-2,0);
+               m[4][3] = GMlib::Vector<float,3> (-4,-2,0);
+               m[4][4] = GMlib::Vector<float,3> (-2,-2,0);
+               m[4][5] = GMlib::Vector<float,3> (0,-2,0);
+               m[4][6] = GMlib::Vector<float,3> (2,-2,0);
+               m[4][7] = GMlib::Vector<float,3> (4,-2,0);
+               m[4][8] = GMlib::Vector<float,3> (6,-2,0);
+               m[4][9] = GMlib::Vector<float,3> (8,-2,0);
+               m[4][10] = GMlib::Vector<float,3> (10,-2,0);
+
+               m[5][0] = GMlib::Vector<float,3> (-10,0,0);
+               m[5][1] = GMlib::Vector<float,3> (-8,0,0);
+               m[5][2] = GMlib::Vector<float,3> (-6,0,0);
+               m[5][3] = GMlib::Vector<float,3> (-4,0,0);
+               m[5][4] = GMlib::Vector<float,3> (-2,0,0);
+               m[5][5] = GMlib::Vector<float,3> (0,0,100);
+               m[5][6] = GMlib::Vector<float,3> (2,0,0);
+               m[5][7] = GMlib::Vector<float,3> (4,0,0);
+               m[5][8] = GMlib::Vector<float,3> (6,0,0);
+               m[5][9] = GMlib::Vector<float,3> (8,0,0);
+               m[5][10] = GMlib::Vector<float,3> (10,0,0);
+
+               m[6][0] = GMlib::Vector<float,3> (-10,2,0);
+               m[6][1] = GMlib::Vector<float,3> (-8,2,0);
+               m[6][2] = GMlib::Vector<float,3> (-6,2,0);
+               m[6][3] = GMlib::Vector<float,3> (-4,2,0);
+               m[6][4] = GMlib::Vector<float,3> (-2,2,0);
+               m[6][5] = GMlib::Vector<float,3> (0,2,0);
+               m[6][6] = GMlib::Vector<float,3> (2,2,0);
+               m[6][7] = GMlib::Vector<float,3> (4,2,0);
+               m[6][8] = GMlib::Vector<float,3> (6,2,0);
+               m[6][9] = GMlib::Vector<float,3> (8,2,0);
+               m[6][10] = GMlib::Vector<float,3> (10,2,0);
+
+               m[7][0] = GMlib::Vector<float,3> (-10,4,0);
+               m[7][1] = GMlib::Vector<float,3> (-8,4,0);
+               m[7][2] = GMlib::Vector<float,3> (-6,4,0);
+               m[7][3] = GMlib::Vector<float,3> (-4,4,0);
+               m[7][4] = GMlib::Vector<float,3> (-2,4,0);
+               m[7][5] = GMlib::Vector<float,3> (0,4,0);
+               m[7][6] = GMlib::Vector<float,3> (2,4,0);
+               m[7][7] = GMlib::Vector<float,3> (4,4,0);
+               m[7][8] = GMlib::Vector<float,3> (6,4,0);
+               m[7][9] = GMlib::Vector<float,3> (8,4,0);
+               m[7][10] = GMlib::Vector<float,3> (10,4,0);
+
+               m[8][0] = GMlib::Vector<float,3> (-10,6,0);
+               m[8][1] = GMlib::Vector<float,3> (-8,6,0);
+               m[8][2] = GMlib::Vector<float,3> (-6,6,0);
+               m[8][3] = GMlib::Vector<float,3> (-4,6,0);
+               m[8][4] = GMlib::Vector<float,3> (-2,6,0);
+               m[8][5] = GMlib::Vector<float,3> (0,6,0);
+               m[8][6] = GMlib::Vector<float,3> (2,6,0);
+               m[8][7] = GMlib::Vector<float,3> (4,6,0);
+               m[8][8] = GMlib::Vector<float,3> (6,6,0);
+               m[8][9] = GMlib::Vector<float,3> (8,6,0);
+               m[8][10] = GMlib::Vector<float,3> (10,6,0);
+
+               m[9][0] = GMlib::Vector<float,3> (-10,8,0);
+               m[9][1] = GMlib::Vector<float,3> (-8,8,0);
+               m[9][2] = GMlib::Vector<float,3> (-6,8,0);
+               m[9][3] = GMlib::Vector<float,3> (-4,8,0);
+               m[9][4] = GMlib::Vector<float,3> (-2,8,0);
+               m[9][5] = GMlib::Vector<float,3> (0,8,0);
+               m[9][6] = GMlib::Vector<float,3> (2,8,0);
+               m[9][7] = GMlib::Vector<float,3> (4,8,0);
+               m[9][8] = GMlib::Vector<float,3> (6,8,0);
+               m[9][9] = GMlib::Vector<float,3> (8,8,0);
+               m[9][10] = GMlib::Vector<float,3> (10,8,0);
+
+               m[10][0] = GMlib::Vector<float,3> (-10,10,0);
+               m[10][1] = GMlib::Vector<float,3> (-8,10,0);
+               m[10][2] = GMlib::Vector<float,3> (-6,10,0);
+               m[10][3] = GMlib::Vector<float,3> (-4,10,0);
+               m[10][4] = GMlib::Vector<float,3> (-2,10,0);
+               m[10][5] = GMlib::Vector<float,3> (0,10,0);
+               m[10][6] = GMlib::Vector<float,3> (2,10,0);
+               m[10][7] = GMlib::Vector<float,3> (4,10,0);
+               m[10][8] = GMlib::Vector<float,3> (6,10,0);
+               m[10][9] = GMlib::Vector<float,3> (8,10,0);
+               m[10][10] = GMlib::Vector<float,3> (10,10,0);
+
+               auto floor = new GMlib::PBezierSurf<float>(m);
+               floor->toggleDefaultVisualizer();
+               floor->replot(40,40,1,1);
+               //floor->setMaterial(GMlib::GMmaterial::Jade);
+
+           //-------------------------
+
+
+           floor->getDefaultVisualizer()->setDisplayMode(GMlib::Visualizer::DISPLAY_MODE_WIREFRAME);
            //proj_rcpair.camera->lock(floor);
 
            auto colController = new Controller(floor);
            _scene->insert(colController);
 
-           auto ball1 = new Ball(1,5,GMlib::Vector<float,3>(5,2,0),GMlib::Point<float,3>(-7,0,1), floor);
+
+           //test balls----------------------------------------
+           auto ball1 = new Ball(1,5,GMlib::Vector<float,3>(5,0,0), floor);
            colController->insertBall(ball1);
            ball1->insertVisualizer(surface_visualizer);
-           ball1->replot(200,200,1,1);
+           ball1->replot(100,100,1,1);
            ball1->setMaterial(GMlib::GMmaterial::Obsidian);
+           ball1->translate(GMlib::Point<float,3>(-8,0,1));
 
 
-           auto ball2 = new Ball(1,5,GMlib::Vector<float,3>(-5,-5,0),GMlib::Point<float,3>(7,0,1), floor);
+           auto ball2 = new Ball(1,5,GMlib::Vector<float,3>(-5,0,0), floor);
            colController->insertBall(ball2);
            ball2->insertVisualizer(surface_visualizer);
-           ball2->replot(200,200,1,1);
+           ball2->replot(100,100,1,1);
            ball2->setMaterial(GMlib::GMmaterial::Ruby);
-
-           auto ball3 = new Ball(1,5,GMlib::Vector<float,3>(2,0,0),GMlib::Point<float,3>(5,3,1), floor);
-           colController->insertBall(ball3);
-           ball3->insertVisualizer(surface_visualizer);
-           ball3->replot(200,200,1,1);
-           ball3->setMaterial(GMlib::GMmaterial::Pearl);
+           ball2->translate(GMlib::Point<float,3>(8,0,1));
 
 
-           auto ball4 = new Ball(1,5,GMlib::Vector<float,3>(-2,0,0),GMlib::Point<float,3>(7,-3,1), floor);
-           colController->insertBall(ball4);
-           ball4->insertVisualizer(surface_visualizer);
-           ball4->replot(200,200,1,1);
-           ball4->setMaterial(GMlib::GMmaterial::Jade);
+            //player controlled ball
+           _contrBall = new Ball(1,5,GMlib::Vector<float,3>(0,5,0), floor);
+           colController->insertBall(_contrBall);
+           _contrBall->insertVisualizer(surface_visualizer);
+           _contrBall->replot(100,100,1,1);
+           _contrBall->setMaterial(GMlib::GMmaterial::Emerald);
+           _contrBall->translate(GMlib::Point<float,3>(0,5,1));
+
+           //-------------------------------------------------
 
 
            wallN->toggleDefaultVisualizer();
@@ -850,6 +986,26 @@ GMlibWrapper::keyPressed(const QString& name, QKeyEvent* event) {
                 es_obj->replot(_replot_low_medium_high*10,_replot_low_medium_high*10,2,2);
         }
         _glsurface->doneCurrent();
+    }
+
+    if(event->key() == Qt::Key_Up)
+    {
+        _contrBall->moveUp();
+    }
+
+    if(event->key() == Qt::Key_Down)
+    {
+        _contrBall->moveDown();
+    }
+
+    if(event->key() == Qt::Key_Left)
+    {
+        _contrBall->moveLeft();
+    }
+
+    if(event->key() == Qt::Key_Right)
+    {
+        _contrBall->moveRight();
     }
 }
 

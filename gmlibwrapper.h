@@ -1,6 +1,7 @@
 
 class TestTorus;
 class GLContextSurfaceWrapper;
+class Ball;
 
 // gmlib
 #include <core/gmpoint>
@@ -96,6 +97,8 @@ private:
   bool                                              _rotate_object_button_pressed {false};
   GMlib::Point<int,2>                               _current_mouse_pos;
   GMlib::Point<int,2>                               _prev_mouse_pos;
+
+  Ball*                                             _contrBall;
 
 signals:
   void                                              signFrameReady();

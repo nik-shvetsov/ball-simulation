@@ -61,12 +61,12 @@ set( HDRS
   window.h
   testtorus.h
   utils.h
-  gmpbiplane.h
-  gmpcurplane.h
+  #gmpbiplane.h
+  #gmpcurplane.h
+  #gmpwall1.h
   gmpwall.h
   ball.h
   collision.h
-  #colobject.h
   controller.h
   )
 
@@ -77,6 +77,8 @@ set( SRCS
   guiapplication.cpp
   main.cpp
   window.cpp
+  ball.cpp
+  controller.cpp
   )
 
 #########

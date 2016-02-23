@@ -513,11 +513,11 @@ void GMlibWrapper::initScene() {
                m[5][0] = GMlib::Vector<float,3> (-10,0,0);
                m[5][1] = GMlib::Vector<float,3> (-8,0,0);
                m[5][2] = GMlib::Vector<float,3> (-6,0,0);
-               m[5][3] = GMlib::Vector<float,3> (-4,0,0);
+               m[5][3] = GMlib::Vector<float,3> (-4,0,-70); //-70
                m[5][4] = GMlib::Vector<float,3> (-2,0,0);
-               m[5][5] = GMlib::Vector<float,3> (0,0,100);
+               m[5][5] = GMlib::Vector<float,3> (0,0,0);
                m[5][6] = GMlib::Vector<float,3> (2,0,0);
-               m[5][7] = GMlib::Vector<float,3> (4,0,0);
+               m[5][7] = GMlib::Vector<float,3> (4,0,40); //40
                m[5][8] = GMlib::Vector<float,3> (6,0,0);
                m[5][9] = GMlib::Vector<float,3> (8,0,0);
                m[5][10] = GMlib::Vector<float,3> (10,0,0);
@@ -598,20 +598,20 @@ void GMlibWrapper::initScene() {
 
 
            //test balls----------------------------------------
-           auto ball1 = new Ball(1,5,GMlib::Vector<float,3>(5,0,0), floor);
+           auto ball1 = new Ball(1,5,GMlib::Vector<float,3>(5,5,0), floor); //5,5,0 5,0,0
            colController->insertBall(ball1);
            ball1->insertVisualizer(surface_visualizer);
            ball1->replot(100,100,1,1);
            ball1->setMaterial(GMlib::GMmaterial::Obsidian);
-           ball1->translate(GMlib::Point<float,3>(-8,0,1));
+           ball1->translate(GMlib::Point<float,3>(-9,-9,1)); //-9,-9,1 -5,0,1
 
 
-           auto ball2 = new Ball(1,5,GMlib::Vector<float,3>(-5,0,0), floor);
+           auto ball2 = new Ball(1,5,GMlib::Vector<float,3>(-5,-5,0), floor); //-5,-5,0 -5,0,0
            colController->insertBall(ball2);
            ball2->insertVisualizer(surface_visualizer);
            ball2->replot(100,100,1,1);
            ball2->setMaterial(GMlib::GMmaterial::Ruby);
-           ball2->translate(GMlib::Point<float,3>(8,0,1));
+           ball2->translate(GMlib::Point<float,3>(9,9,1)); //9,9,1 5,0,1
 
 
             //player controlled ball

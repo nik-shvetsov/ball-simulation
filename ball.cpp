@@ -82,7 +82,7 @@
         double checkV1 = _velocity*_velocity + 2.0*(g*_dS); //
 
         _velocity+=dt*g;
-        _velocity-=(_velocity*norm)*norm; //should be: _velocity+=(norm*_velocity)*norm;
+        _velocity-=(_velocity*norm)*norm; // _velocity+=(norm*_velocity)*norm;
 
         double checkV2 = _velocity*_velocity; //
 

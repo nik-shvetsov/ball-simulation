@@ -40,7 +40,7 @@
         double alterDskr =  b*b-4*a*c;
 
         //check test
-//      double check = (ball1->getPos() - ball2->getPos()).getLength() - sumRad;
+      double check = (ball1->getPos() - ball2->getPos()).getLength() - sumRad;
 //      if (check >= 0.0 && check < 0.05)
 //      {
 //          qDebug() <<  check;
@@ -192,7 +192,7 @@
                 handleBWCol(col.getBall(0),col.getWall(), (1-col.getX())*dt);
                 col.getBall(0)->updateX(col.getX());
 
-                for (int i = 0; i < _arrBalls.size(); i++)
+                for (int i = 0; i < _arrBalls.size(); i++) //seek for further (for this dt) collisions
                 {
                     if (_arrBalls[i] != col.getBall(0))
                     {

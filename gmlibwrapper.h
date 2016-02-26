@@ -98,7 +98,7 @@ private:
   GMlib::Point<int,2>                               _current_mouse_pos;
   GMlib::Point<int,2>                               _prev_mouse_pos;
 
-  Ball*                                             _contrBall;
+  Ball*                                             _contrBall; //for player controlled ball
 
 signals:
   void                                              signFrameReady();

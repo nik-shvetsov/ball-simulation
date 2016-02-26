@@ -214,6 +214,7 @@ void GMlibWrapper::initScene() {
     proj_rcpair.camera->translateGlobal( GMlib::Vector<float,3>( 0.0f, -30.0f, 30.0f ) );
     _scene->insertCamera( proj_rcpair.camera.get() );
     proj_rcpair.render->reshape( GMlib::Vector<int,2>(init_viewport_size, init_viewport_size) );
+    proj_rcpair.render->setClearColor(GMlib::GMcolor::Black);
 
     // Front cam
     auto& front_rcpair = _rc_pairs["Front"];
@@ -446,7 +447,7 @@ void GMlibWrapper::initScene() {
 //           //floor->setMaterial(GMlib::GMmaterial::Jade);
 
            //---------------------curved test
-               //adding curved plane
+               //adding curved Bezier surface based on matrix 11*11
 
                GMlib::DMatrix<GMlib::Vector<float,3>> m(11,11);
 

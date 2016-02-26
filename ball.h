@@ -52,7 +52,7 @@ private:
   GMlib::PBezierSurf<float>* _surface;
   //std::shared_ptr<PBiPlane<float>> _surface;
 
-  GMlib::Point<float,3> _p; //
+  //GMlib::Point<float,3> _p;
 
 }; // END class ball
 

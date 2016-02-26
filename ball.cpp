@@ -79,17 +79,17 @@
 
         _dS = sMatrix[0][0]+(_radius*norm)-this->getPos();
 
-        double v1 = _velocity*_velocity + 2.0*(g*_dS); //
+        double checkV1 = _velocity*_velocity + 2.0*(g*_dS); //
 
         _velocity+=dt*g;
-        _velocity-=(_velocity*norm)*norm; //should be: _velocity+=(norm*_velocity)*norm; ?
+        _velocity-=(_velocity*norm)*norm; //should be: _velocity+=(norm*_velocity)*norm;
 
-        double v2 = _velocity*_velocity; //
+        double checkV2 = _velocity*_velocity; //
 
-        if(v2 > 0.0001) //
+        if(checkV2 > 0.0001) //
         { //
-            if(v1 > 0.0001) //
-            _velocity *= std::sqrt(v1/v2); //
+            if(checkV1 > 0.0001) //
+            _velocity *= std::sqrt(checkV1/checkV2); //
         } //
     }
 

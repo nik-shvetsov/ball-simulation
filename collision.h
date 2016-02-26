@@ -46,7 +46,7 @@ public:
         return _colBW;
     }
 
-    void updateX(double x) //
+    void updateX(double x)
     {
       _x = x;
     }

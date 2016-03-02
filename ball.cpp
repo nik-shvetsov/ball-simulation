@@ -89,7 +89,9 @@
         if(checkV2 > 0.0001) //
         { //
             if(checkV1 > 0.0001) //
-            _velocity *= std::sqrt(checkV1/checkV2); //
+            {
+                _velocity *= std::sqrt(checkV1/checkV2); // vector correction 1
+            }
         } //
     }
 

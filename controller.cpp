@@ -65,6 +65,11 @@
             {
                 cols.insertAlways(Collision(ball1,ball2,x));
 
+//                qDebug() << "ball1 v*v: " <<ball1->getVelocity() * ball1->getVelocity();
+//                qDebug() << "ball2 v*v: " <<ball2->getVelocity() * ball2->getVelocity();
+
+//                qDebug() << "";
+
                 //qDebug() << "Added to collision array with distance: " << check;
 
                 //cols+= Collision(ball1,ball2,x);

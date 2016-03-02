@@ -58,3 +58,21 @@ private:
 
 
 #endif // BALL_H
+
+//TODO:
+// location variable in ball and estimateclppar there (arne notion)
+// get rid of ball-wall velocityvect=0 when getlength>0.1
+// corrS when ball-ball intersecting must be *0.50000001 CHECK IT! (arne notion)
+// modify controls of player ball, add HUD
+// fix problem with divpos when collide > 0.1
+// check the algorithm of controller localsimulate
+// when colliding ball-wall translate ball to wall before recalculaing(reversing) velocity vector (arne notion)
+// add totation force into consideration when colliding (arne notion)
+// fix high velocity (or sometimes low) problems and balls disappearing (see report for info)
+
+//CMAKE options
+//-DGMLIB_DIR=D:\Data\Projects\project_fem\gmlib\build
+//-DCMAKE_BUILD_TYPE=Release //-DBUILD_TYPE=Release
+//-DCMAKE_BUILD_TYPE=debug
+//-DGM_DEBUG_OPENGL=on
+
